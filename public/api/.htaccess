@@ -1,0 +1,9 @@
+# avoid listing files
+Options -Indexes
+
+# remove index.php
+RewriteEngine On
+# RewriteBase /api
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php/$1 [QSA,L]

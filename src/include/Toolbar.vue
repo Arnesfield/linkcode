@@ -18,7 +18,7 @@
     </v-toolbar-title>
 
     <template
-      v-if="checkRoute('ManageCategories')"
+      v-if="checkRoute('ManageProjects', 'ManageCategories')"
     >
       <v-spacer/>
       <btn-refresh/>
@@ -28,19 +28,13 @@
           slot="activator"
           @click="$bus.$emit('save--btn')"
           :loading="$bus.progress.save"
-          :disabled="$bus.progress.save"
+          :disabled="$bus.progress.save || !$bus.progress.saveDisabled"
+          color="accent"
         >
           <v-icon>save</v-icon>
         </v-btn>
         <span>Save</span>
       </v-tooltip>
-    </template>
-
-    <template
-      v-if="checkRoute('')"
-    >
-      <v-spacer/>
-      <btn-refresh/>
     </template>
 
   </v-toolbar>

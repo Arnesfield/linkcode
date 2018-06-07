@@ -1,5 +1,6 @@
 export default {
   active: false,
   refresh: false,
-  save: false
+  save: false,
+  saveDisabled: false
 }

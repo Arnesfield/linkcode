@@ -6,6 +6,7 @@ import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
 import Vote from '@/components/Vote'
 
+import ManageProjects from '@/components/manage/ManageProjects'
 import ManageCategories from '@/components/manage/ManageCategories'
 
 import NotFound from '@/components/errors/NotFound'
@@ -26,6 +27,16 @@ export default new Router({
     },
 
     // admin
+    {
+      path: '/manage/projects',
+      name: 'ManageProjects',
+      component: ManageProjects,
+      meta: {
+        icon: 'phonelink',
+        title: 'Manage Projects',
+        auth: 1
+      }
+    },
     {
       path: '/manage/categories',
       name: 'ManageCategories',

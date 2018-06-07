@@ -6,7 +6,11 @@
     height: 'calc(100% - 96px)'
   }"
 >
-  <v-form class="full-width" v-if="categories.length">
+  <v-form
+    class="full-width"
+    v-if="categories.length"
+    v-model="form"
+  >
     <v-layout row wrap>
       <template v-for="(category, i) in categories">
         <v-flex
@@ -62,17 +66,22 @@ export default {
     url: '/categories',
     saveUrl: '/categories/save',
     categories: [],
+    form: false,
     loading: false
   }),
 
   watch: {
     loading(e) {
       this.$bus.refresh(e)
+    },
+    form(e) {
+      this.$bus.disableSave(e)
     }
   },
 
   created() {
     this.fetch()
+    this.$bus.disableSave(this.form)
     this.$bus.$on('category--add', this.addItem)
     this.$bus.$on('save--btn', this.submit)
     this.$bus.$on('refresh--btn', this.fetch)
@@ -96,6 +105,10 @@ export default {
     },
 
     submit() {
+      if (!this.categories) {
+        return
+      }
+
       this.$bus.save(true)
       this.$http.post(this.saveUrl, qs.stringify({
         categories: JSON.stringify(this.categories)

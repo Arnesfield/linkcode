@@ -37,6 +37,9 @@ export default new Vue({
       this.progress.refresh = e
       this.progress.save = e
     },
+    disableSave(e) {
+      this.progress.saveDisabled = e
+    },
 
     navToggle() {
       if (this.nav.model) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 07:17 PM
+-- Generation Time: Jun 07, 2018 at 09:10 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -66,8 +66,8 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `name`, `group_name`, `description`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'FORGE: Online Syllabus Generator', '</code>', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin egestas eros. Curabitur ac libero ac sapien malesuada congue. Morbi mollis accumsan urna et ultrices. Fusce aliquet sodales fringilla. Fusce tempus, urna ut ullamcorper interdum, libero ante lobortis erat, vitae ullamcorper felis sem id elit. Integer non pellentesque arcu, ut tempor tortor. Aenean iaculis accumsan malesuada. Donec posuere efficitur purus sed consectetur. Ut in neque id dolor sagittis commodo nec eu arcu. Integer diam tortor, varius ac nulla at, ultrices pulvinar ante. Ut pulvinar turpis et felis luctus, sed vulputate augue ullamcorper.', 0, 0, 1),
-(2, 'PetEx', 'JC and da boyz', 'Sed accumsan consequat metus eu vestibulum. Vestibulum nec nisl pharetra lacus suscipit mattis. Sed orci libero, feugiat ac ex eu, feugiat rhoncus lectus. Praesent tristique vestibulum justo eu suscipit. Praesent sem lacus, sollicitudin ac consectetur in, pulvinar sed tellus. Donec vel metus metus. Pellentesque tempus massa vel arcu tristique suscipit. Curabitur sollicitudin nisi non augue congue, sit amet pellentesque erat vulputate. Fusce efficitur ut enim in elementum.', 0, 0, 1);
+(1, 'FORGE: Online Syllabus Generator', '</code>', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin egestas eros. Curabitur ac libero ac sapien malesuada congue. Morbi mollis accumsan urna et ultrices. Fusce aliquet sodales fringilla. Fusce tempus, urna ut ullamcorper interdum, libero ante lobortis erat, vitae ullamcorper felis sem id elit. Integer non pellentesque arcu, ut tempor tortor. Aenean iaculis accumsan malesuada. Donec posuere efficitur purus sed consectetur. Ut in neque id dolor sagittis commodo nec eu arcu. Integer diam tortor, varius ac nulla at, ultrices pulvinar ante. Ut pulvinar turpis et felis luctus, sed vulputate augue ullamcorper.', 1528398556, 1528398556, 1),
+(2, 'PetEx', 'JC and da boyz', 'Sed accumsan consequat metus eu vestibulum. Vestibulum nec nisl pharetra lacus suscipit mattis. Sed orci libero, feugiat ac ex eu, feugiat rhoncus lectus. Praesent tristique vestibulum justo eu suscipit. Praesent sem lacus, sollicitudin ac consectetur in, pulvinar sed tellus. Donec vel metus metus. Pellentesque tempus massa vel arcu tristique suscipit. Curabitur sollicitudin nisi non augue congue, sit amet pellentesque erat vulputate. Fusce efficitur ut enim in elementum.', 1528398556, 1528398556, 1);
 
 -- --------------------------------------------------------
 

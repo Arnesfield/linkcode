@@ -1,7 +1,7 @@
 <template>
 <v-card>
   <v-card-title class="pa-0">
-    <div class="full-width">
+    <div class="full-width bold">
       <v-text-field
         label="Category name"
         v-model="item.name"

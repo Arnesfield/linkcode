@@ -46,6 +46,16 @@ class Projects_model extends MY_Custom_Model {
       ->where($where)
       ->update('projects');
   }
+
+  public function reupdate($data) {
+    $res = $this->db->truncate('projects');
+
+    if (!$res) {
+      return FALSE;
+    }
+
+    return $this->db->insert_batch('projects', $data);
+  }
 }
 
 ?>

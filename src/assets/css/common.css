@@ -52,3 +52,7 @@ p {
 .clickable {
   cursor: pointer;
 }
+
+.bold {
+  font-weight: bold;
+}

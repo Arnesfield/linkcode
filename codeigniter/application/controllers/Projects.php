@@ -43,6 +43,27 @@ class Projects extends MY_Custom_Controller {
     $this->_json(TRUE, 'projects', $projects);
   }
 
+  public function save() {
+    // delete all projects, then insert all
+    $projects = $this->input->post('projects');
+    $projects = json_decode($projects, TRUE);
+
+    // loop through projects
+    $newProj = array();
+    foreach ($projects as $key => $value) {
+      $newProj[$key] = array();
+      $newProj[$key]['name'] = $value['name'];
+      $newProj[$key]['group_name'] = $value['group_name'];
+      $newProj[$key]['description'] = $value['description'];
+      $newProj[$key]['created_at'] = time();
+      $newProj[$key]['updated_at'] = time();
+      $newProj[$key]['status'] = 1;
+    }
+
+    $res = $this->projects_model->reupdate($newProj);
+    $this->_json($res);
+  }
+
   public function delete() {
     $id = $this->input->post('id');
     $data = array(

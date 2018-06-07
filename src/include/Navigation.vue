@@ -104,7 +104,7 @@ export default {
       },
       {
         header: 'Results',
-        auth: 1,
+        auth: [1, 3],
         items: [
           { title: 'All Votes', icon: 'star', tip: 'All Votes', to: '/votes' }
         ]

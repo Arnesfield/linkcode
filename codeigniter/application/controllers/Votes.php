@@ -8,6 +8,7 @@ class Votes extends MY_Custom_Controller {
     $this->load->model('votes_model');
     $this->load->model('categories_model');
     $this->load->model('projects_model');
+    $this->load->model('users_model');
   }
   
   public function index() {
@@ -19,6 +20,8 @@ class Votes extends MY_Custom_Controller {
 
     $projects = $this->projects_model->getByQuery();
 
+    $users = $this->users_model->getByQuery(FALSE, array('auth' => '[3]'));
+
     // convert projects, id => value
     $newProj = array();
     foreach ($projects as $key => $value) {
@@ -28,7 +31,8 @@ class Votes extends MY_Custom_Controller {
     $this->_json(TRUE, array(
       'votes' => $votes,
       'categories' => $categories,
-      'projects' => $newProj
+      'projects' => $newProj,
+      'userCount' => count($users)
     ));
   }
 }

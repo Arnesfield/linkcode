@@ -5,21 +5,35 @@
       :key="i"
       v-for="(category, i) in categories"
     >
-      <div class="display-1 my-3">{{ category.name }}</div>
+      <div class="display-1 mt-3">{{ category.name }}</div>
+      <div
+        v-if="userCount"
+        class="grey--text text--darken-1"
+      >Total panels: <strong v-text="userCount"/></div>
       <v-list
         two-line
         class="elevation-1 my-3 pa-0"
       >
         <template v-for="(projectId, j) in keyed = keysify(result[category.id])">
-          <v-list-tile :key="i + '-' + j">
-            <v-list-tile-content>
+          <v-layout
+            :key="i + '-' + j"
+            class="pa-3"
+          >
+            <div>
               <div>{{ getProject(projectId).name }}</div>
               <div class="grey--text">{{ getProject(projectId).group_name }}</div>
-            </v-list-tile-content>
-            <v-list-tile-action>
-              {{ totalPoints(result[category.id], projectId) }}
-            </v-list-tile-action>
-          </v-list-tile>
+            </div>
+            <v-spacer/>
+            <div>
+              <div class="text-xs-right">
+                <div>{{ totalPoints(result[category.id], projectId) }}</div>
+                <div
+                  class="grey--text"
+                >Total Votes: <strong v-text="totalVotes(result[category.id], projectId)"/>
+                </div>
+              </div>
+            </div>
+          </v-layout>
           <v-divider
             :key="'divider-' + i + '-' + j"
             v-if="keyed.length-1 != j"
@@ -42,6 +56,7 @@ export default {
     votes: [],
     categories: [],
     projects: [],
+    userCount: null,
     result: {},
     loading: false
   }),
@@ -86,6 +101,11 @@ export default {
         ? totalVotesFromAll / projects.length
         : 0
       return average.toFixed(2)
+    },
+
+    totalVotes(projectKeyValue, id) {
+      let projects = projectKeyValue[id]
+      return projects.length
     },
 
     getProject(id) {
@@ -141,6 +161,7 @@ export default {
         this.votes = res.data.votes
         this.categories = res.data.categories
         this.projects = res.data.projects
+        this.userCount = res.data.userCount
         this.initVotes()
       }).catch(e => {
         this.loading = false

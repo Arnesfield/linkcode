@@ -15,6 +15,7 @@ class Projects extends MY_Custom_Controller {
       ? $this->_filter($this->input->post('search'))
       : '';
     $id = $this->input->post('id') ? $this->input->post('id') : FALSE;
+    $total = $this->input->post('total') ? $this->input->post('total') : FALSE;
     $userSpecific = $this->input->post('userSpecific') ? $this->input->post('userSpecific') : FALSE;
     
     $where = array();
@@ -37,10 +38,17 @@ class Projects extends MY_Custom_Controller {
       $where_in = $this->votes_model->_to_col($votes, 'project_id');
       $search = FALSE;
     }
-
+    
     $projects = $this->projects_model->getByQuery($search, $where, $where_in);
 
-    $this->_json(TRUE, 'projects', $projects);
+    $data = array('projects' => $projects);
+
+    if ($total) {
+      $allProjects = $this->projects_model->getByQuery(FALSE, array('status', 1));
+      $data['projectCount'] = count($allProjects);
+    }
+
+    $this->_json(TRUE, $data);
   }
 
   public function save() {

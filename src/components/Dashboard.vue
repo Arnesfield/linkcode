@@ -7,7 +7,9 @@
   }"
 >
   <template v-if="projects.length">
-    <v-subheader>Projects you have voted</v-subheader>
+    <v-subheader>Projects you have voted &nbsp;
+      <strong>({{ projects.length }} of {{ projectCount }} projects)</strong>
+    </v-subheader>
     <v-layout row wrap>
       <template v-for="(project, i) in projects">
         <v-flex
@@ -61,7 +63,8 @@ export default {
   data: () => ({
     url: '/projects',
     projects: [],
-    loading: false
+    loading: false,
+    projectCount: null
   }),
 
   watch: {
@@ -78,7 +81,8 @@ export default {
     fetch() {
       this.loading = true
       this.$http.post(this.url, qs.stringify({
-        userSpecific: true
+        userSpecific: true,
+        total: true
       })).then(res => {
         console.warn(res.data)
         if (!res.data.success) {
@@ -86,6 +90,7 @@ export default {
         }
         this.loading = false
         this.projects = res.data.projects
+        this.projectCount = res.data.projectCount
       }).catch(e => {
         console.error(e)
         this.loading = false

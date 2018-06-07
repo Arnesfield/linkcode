@@ -1,8 +1,8 @@
 <template>
 <div>
 
-  <div class="pa-2">
-    <v-list class="elevation-1 py-0" two-line>
+  <v-card class="pa-0">
+    <v-list class="elevation-x1 py-0" two-line>
       <v-list-tile
         ripple
         @click="dialog = true"
@@ -34,9 +34,16 @@
       </v-list-tile>
 
     </v-list>
-  </div>
+    <template v-if="selected && selected.description">
+      <v-divider/>
+      <v-card-text>
+        <div class="caption grey--text">Description</div>
+        <div v-text="selected.description"></div>
+      </v-card-text>
+    </template>
+  </v-card>
 
-  <v-layout>
+  <v-layout class="mt-2">
     <v-spacer/>
     <v-btn
       color="primary lighten-1"

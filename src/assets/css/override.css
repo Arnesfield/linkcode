@@ -1,0 +1,47 @@
+/* fab */
+.btn--floating .btn__content :not(:only-child):last-child {
+  left: 0;
+  top: 0;
+}
+
+/* snackbar */
+.snack .snack__content {
+  padding: 0;
+}
+
+.snack .snack__content .btn {
+  margin-left: 8px;
+}
+
+/* toolbar */
+.toolbar__content>:not(.btn):not(.menu):last-child:not(:only-child) {
+  margin-right: 8px !important;
+}
+
+/* parallax */
+.parallax__content {
+  padding: 0;
+  background-size: 100%;
+}
+
+/* card */
+.feature-card-media {
+  filter: grayscale(0.5);
+  transition: filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.feature-card-media:hover {
+  filter: grayscale(0);
+}
+
+.feature-card-media .card__media__background {
+  background-size: 50% !important;
+  filter: blur(1px);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-property: box-shadow, background-size;
+}
+
+.feature-card-media:hover .card__media__background {
+  filter: blur(0px);
+  background-size: 65% !important;
+}

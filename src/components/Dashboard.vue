@@ -1,11 +1,11 @@
 <template>
-<v-container>
-  Homepage
-</v-container>
+<div>
+  dashboard
+</div>
 </template>
 
 <script>
 export default {
-  name: 'home-page'
+  name: 'dashboard'
 }
 </script>

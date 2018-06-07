@@ -10,9 +10,11 @@ import bus from './bus'
 import routerCond from './router/cond'
 import formRules from './assets/js/formRules'
 import base_url from './assets/js/baseURL'
+import autoYear from './assets/js/autoYear'
 import colors from 'vuetify/es5/util/colors'
 
 import 'vuetify/dist/vuetify.min.css'
+import './assets/css/override.css'
 import './assets/css/common.css'
 
 const baseURL = base_url + 'api'
@@ -34,6 +36,7 @@ Vue.config.productionTip = false
 Vue.prototype.$http = http
 Vue.prototype.$bus = bus
 Vue.prototype.$fRule = formRules
+Vue.prototype.$autoYear = autoYear
 
 routerCond(router, http, bus)
 

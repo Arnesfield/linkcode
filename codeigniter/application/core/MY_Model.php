@@ -152,4 +152,28 @@ class MY_CRUD_Model extends MY_Model {
   }
 }
 
+class MY_Custom_Model extends MY_CRUD_Model {
+  public function _res($query, $else = array()) {
+    return $query->num_rows() > 0 ? $query->result_array() : $else;
+  }
+  
+  public function _to_col($places, $col = 'name') {
+    $names = array();
+    foreach ($places as $key => $place) {
+      array_push($names, $place[$col]);
+    }
+    return $names;
+  }
+
+  public function _remove_existing($arr, $in_db) {
+    $nonExisting = array();
+    foreach ($arr as $key => $val) {
+      if (!in_array($val, $in_db)) {
+        array_push($nonExisting, $val);
+      }
+    }
+    return $nonExisting;
+  }
+}
+
 ?>

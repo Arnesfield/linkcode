@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 09:35 AM
+-- Generation Time: Jun 07, 2018 at 10:47 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -60,6 +60,13 @@ CREATE TABLE `users` (
   `auth` text NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `auth`, `status`) VALUES
+(1, 'John Doe', 'user1', '$2y$10$bkpoxPsGV9rI/jqY68v2muyEb42Zow9Lfn1/cGNVZQadDx/BoxCW2', '[3]', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +131,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `votes`
 --

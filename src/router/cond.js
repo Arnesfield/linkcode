@@ -33,7 +33,7 @@ export default function(router, http, bus) {
           router.push('/dashboard')
         }
       } else {
-        router.push('/login')
+        router.push('/')
       }
     }
 

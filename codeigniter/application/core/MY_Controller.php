@@ -113,6 +113,22 @@ class MY_Custom_Controller extends MY_View_Controller {
     exit;
   }
 
+  // formats
+  public function _formatUsers($users, $remove_password = FALSE) {
+    if ($users) {
+      foreach ($users as $key => $user) {
+        if ($remove_password) {
+          unset($users[$key]['password']);
+        }
+        
+        // make sure auth is all int
+        $auth = json_decode($user['auth'], TRUE);
+        $users[$key]['auth'] = is_array($auth) ? array_map('intval', $auth) : array();
+      }
+    }
+    return $users;
+  }
+
   public function _uploadFile($file_name = 'file', $allowed_types = FALSE, $path = 'uploads/images/') {
     if (!$allowed_types) {
       $allowed_types = 'jpg|png|jpeg';

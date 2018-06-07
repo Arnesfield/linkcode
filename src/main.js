@@ -9,6 +9,7 @@ import axios from 'axios'
 import bus from './bus'
 import routerCond from './router/cond'
 import formRules from './assets/js/formRules'
+import wrap from './assets/js/wrap'
 import base_url from './assets/js/baseURL'
 import autoYear from './assets/js/autoYear'
 import colors from 'vuetify/es5/util/colors'
@@ -36,6 +37,7 @@ Vue.config.productionTip = false
 Vue.prototype.$http = http
 Vue.prototype.$bus = bus
 Vue.prototype.$fRule = formRules
+Vue.prototype.$wrap = wrap
 Vue.prototype.$autoYear = autoYear
 
 routerCond(router, http, bus)

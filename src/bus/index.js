@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+import nav from './nav'
 import session from './session'
 import progress from './progress'
 
@@ -7,6 +8,7 @@ import toNumberArray from '@/assets/js/toNumberArray'
 
 export default new Vue({
   data: () => ({
+    nav: nav,
     session: session,
     progress: progress
   }),

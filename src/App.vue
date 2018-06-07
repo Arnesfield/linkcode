@@ -1,19 +1,38 @@
 <template>
   <v-app>
+    <navigation v-if="authCheck"/>
     <v-content>
       <router-view/>
     </v-content>
+    <toolbar v-if="authCheck"/>
     <snackbar/>
   </v-app>
 </template>
 
 <script>
+import Toolbar from '@/include/Toolbar'
+import Navigation from '@/include/Navigation'
 import Snackbar from '@/include/Snackbar'
 
 export default {
   name: 'App',
   components: {
+    Toolbar,
+    Navigation,
     Snackbar
+  },
+  computed: {
+    authCheck() {
+      return this.$bus.authCheck(this.$route.meta.auth)
+    }
+  },
+  watch: {
+    $route(to, from) {
+      if (this.$bus.authHas(to.meta.auth, [0, -1])) {
+        this.$bus.nav.model = null
+        this.$bus.nav.miniVariant = false
+      }
+    }
   },
 
   created() {

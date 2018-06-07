@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Login from '@/components/Login'
+
 import Dashboard from '@/components/Dashboard'
+import Vote from '@/components/Vote'
 
 import NotFound from '@/components/errors/NotFound'
 
@@ -28,6 +30,15 @@ export default new Router({
       component: Dashboard,
       meta: {
         title: 'Dashboard',
+        auth: 3
+      }
+    },
+    {
+      path: '/vote',
+      name: 'Vote',
+      component: Vote,
+      meta: {
+        title: 'Vote',
         auth: 3
       }
     },

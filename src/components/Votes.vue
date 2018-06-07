@@ -19,6 +19,7 @@
             :key="i + '-' + j"
             class="pa-3"
           >
+            <div class="mr-3">{{ j+1 }}</div>
             <div>
               <div>{{ getProject(projectId).name }}</div>
               <div class="grey--text">{{ getProject(projectId).group_name }}</div>

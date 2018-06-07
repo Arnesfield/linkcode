@@ -4,6 +4,7 @@
   <v-jumbotron
     :height="height"
     class="pa-0 white"
+    :gradient="gradient"
   >
     <v-parallax
       class="pa-0"

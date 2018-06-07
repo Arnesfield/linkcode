@@ -6,6 +6,8 @@ import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
 import Vote from '@/components/Vote'
 
+import ManageCategories from '@/components/manage/ManageCategories'
+
 import NotFound from '@/components/errors/NotFound'
 
 Vue.use(Router)
@@ -20,6 +22,18 @@ export default new Router({
       meta: {
         title: 'LinkCode Login',
         auth: 0
+      }
+    },
+
+    // admin
+    {
+      path: '/manage/categories',
+      name: 'ManageCategories',
+      component: ManageCategories,
+      meta: {
+        icon: 'school',
+        title: 'Manage Categories',
+        auth: 1
       }
     },
 

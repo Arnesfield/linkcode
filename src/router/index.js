@@ -5,6 +5,7 @@ import Login from '@/components/Login'
 
 import Dashboard from '@/components/Dashboard'
 import Vote from '@/components/Vote'
+import Votes from '@/components/Votes'
 
 import ManageUsers from '@/components/manage/ManageUsers'
 import ManageProjects from '@/components/manage/ManageProjects'
@@ -79,6 +80,19 @@ export default new Router({
         icon: 'star',
         title: 'Vote',
         auth: 3
+      }
+    },
+
+    // both
+    {
+      path: '/votes',
+      name: 'Votes',
+      component: Votes,
+      props: true,
+      meta: {
+        icon: 'star',
+        title: 'All Votes',
+        auth: [1, 3]
       }
     },
 

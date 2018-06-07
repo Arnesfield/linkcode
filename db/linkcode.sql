@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 10:56 PM
+-- Generation Time: Jun 08, 2018 at 12:56 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -42,8 +42,13 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `content`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'Best Thesis', '[{\"criterion\":\"Introduction\",\"weight\":10},{\"criterion\":\"Objectives\\/Criteria\",\"weight\":10},{\"criterion\":\"Methodology\",\"weight\":10},{\"criterion\":\"Presentation\",\"weight\":10},{\"criterion\":\"Results\\/Findings\",\"weight\":10},{\"criterion\":\"Flow\\/Balance\",\"weight\":10},{\"criterion\":\"Impact Factor\",\"weight\":10},{\"criterion\":\"Conclusion\",\"weight\":10},{\"criterion\":\"Quest\\/Answer Session\",\"weight\":10}]', 1528391451, 1528391451, 1),
-(2, 'Best Mobile Application', '[{\"criterion\":\"Something\",\"weight\":10}]', 1528391451, 1528391451, 1);
+(1, 'Best Thesis', '[{\"criterion\":\"Introduction\",\"weight\":10},{\"criterion\":\"Objectives\\/Criteria\",\"weight\":10},{\"criterion\":\"Methodology\",\"weight\":10},{\"criterion\":\"Presentation\",\"weight\":10},{\"criterion\":\"Results\\/Findings\",\"weight\":10},{\"criterion\":\"Flow\\/Balance\",\"weight\":10},{\"criterion\":\"Impact Factor\",\"weight\":10},{\"criterion\":\"Conclusion\",\"weight\":10},{\"criterion\":\"Quest\\/Answer Session\",\"weight\":10}]', 1528406552, 1528406552, 1),
+(2, 'Best Mobile Application (FOR WMA)', '[{\"criterion\":\"User Friendliness\",\"weight\":10},{\"criterion\":\"Visual Design\",\"weight\":10},{\"criterion\":\"Logo\",\"weight\":10},{\"criterion\":\"Functionality\",\"weight\":10},{\"criterion\":\"Content\",\"weight\":10}]', 1528406552, 1528406552, 1),
+(3, 'Best SMBA Project', '[{\"criterion\":\"Visual Design\",\"weight\":10},{\"criterion\":\"User Friendliness\",\"weight\":10},{\"criterion\":\"Content\",\"weight\":10},{\"criterion\":\"Functionality\",\"weight\":10},{\"criterion\":\"Data Visualization\",\"weight\":10}]', 1528406552, 1528406552, 1),
+(4, 'Best Web Application', '[{\"criterion\":\"User Friendliness\",\"weight\":10},{\"criterion\":\"Visual Design\",\"weight\":10},{\"criterion\":\"Innovation\",\"weight\":10},{\"criterion\":\"Functionality\",\"weight\":10},{\"criterion\":\"Content\",\"weight\":10}]', 1528406552, 1528406552, 1),
+(5, 'Best Pitch Video Presentation', '[{\"criterion\":\"Creativity\",\"weight\":10},{\"criterion\":\"Relevance to the Application\",\"weight\":10},{\"criterion\":\"Originality\",\"weight\":10},{\"criterion\":\"Quality\",\"weight\":10}]', 1528406552, 1528406552, 1),
+(6, 'Best Creative Poster', '[{\"criterion\":\"Creativity\",\"weight\":10},{\"criterion\":\"Quality\",\"weight\":10},{\"criterion\":\"Blending of Colors\",\"weight\":10},{\"criterion\":\"Informative\",\"weight\":10},{\"criterion\":\"Uniqueness\",\"weight\":10}]', 1528406552, 1528406552, 1),
+(7, 'Best Presentor', '[{\"criterion\":\"Timing\\/Mode of Delivery\",\"weight\":10},{\"criterion\":\"Discussion Management\",\"weight\":10},{\"criterion\":\"Confidence\",\"weight\":10},{\"criterion\":\"Speech\",\"weight\":10},{\"criterion\":\"Visual Aid\",\"weight\":10}]', 1528406552, 1528406552, 1);
 
 -- --------------------------------------------------------
 
@@ -117,7 +122,7 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `user_id`, `project_id`, `content`, `created_at`, `updated_at`, `status`) VALUES
-(1, 1, 1, '[{\"id\":\"1\",\"name\":\"Best Thesis\",\"content\":[{\"criterion\":\"Introduction\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Objectives/Criteria\",\"weight\":10,\"value\":{\"text\":10}},{\"criterion\":\"Methodology\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Presentation\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Results/Findings\",\"weight\":10,\"value\":{\"text\":10}},{\"criterion\":\"Flow/Balance\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Impact Factor\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Conclusion\",\"weight\":10,\"value\":{\"text\":6}},{\"criterion\":\"Quest/Answer Session\",\"weight\":10,\"value\":{\"text\":6}}],\"created_at\":\"0\",\"updated_at\":\"0\",\"status\":\"1\"}]', 1528372178, 1528372522, 1);
+(1, 1, 1, '[{\"id\":\"1\",\"name\":\"Best Thesis\",\"content\":[{\"criterion\":\"Introduction\",\"weight\":10,\"value\":{\"text\":10}},{\"criterion\":\"Objectives/Criteria\",\"weight\":10,\"value\":{\"text\":10}},{\"criterion\":\"Methodology\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Presentation\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Results/Findings\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Flow/Balance\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Impact Factor\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Conclusion\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Quest/Answer Session\",\"weight\":10,\"value\":{\"text\":5}}],\"created_at\":\"1528406552\",\"updated_at\":\"1528406552\",\"status\":\"1\"},{\"id\":\"2\",\"name\":\"Best Mobile Application (FOR WMA)\",\"content\":[{\"criterion\":\"User Friendliness\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Visual Design\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Logo\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Functionality\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Content\",\"weight\":10,\"value\":{\"text\":7}}],\"created_at\":\"1528406552\",\"updated_at\":\"1528406552\",\"status\":\"1\"},{\"id\":\"3\",\"name\":\"Best SMBA Project\",\"content\":[{\"criterion\":\"Visual Design\",\"weight\":10,\"value\":{\"text\":10}},{\"criterion\":\"User Friendliness\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Content\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Functionality\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Data Visualization\",\"weight\":10,\"value\":{\"text\":6}}],\"created_at\":\"1528406552\",\"updated_at\":\"1528406552\",\"status\":\"1\"},{\"id\":\"4\",\"name\":\"Best Web Application\",\"content\":[{\"criterion\":\"User Friendliness\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Visual Design\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Innovation\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Functionality\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Content\",\"weight\":10,\"value\":{\"text\":6}}],\"created_at\":\"1528406552\",\"updated_at\":\"1528406552\",\"status\":\"1\"},{\"id\":\"5\",\"name\":\"Best Pitch Video Presentation\",\"content\":[{\"criterion\":\"Creativity\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Relevance to the Application\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Originality\",\"weight\":10,\"value\":{\"text\":10}},{\"criterion\":\"Quality\",\"weight\":10,\"value\":{\"text\":8}}],\"created_at\":\"1528406552\",\"updated_at\":\"1528406552\",\"status\":\"1\"},{\"id\":\"6\",\"name\":\"Best Creative Poster\",\"content\":[{\"criterion\":\"Creativity\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Quality\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Blending of Colors\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Informative\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Uniqueness\",\"weight\":10,\"value\":{\"text\":7}}],\"created_at\":\"1528406552\",\"updated_at\":\"1528406552\",\"status\":\"1\"},{\"id\":\"7\",\"name\":\"Best Presentor\",\"content\":[{\"criterion\":\"Timing/Mode of Delivery\",\"weight\":10,\"value\":{\"text\":9}},{\"criterion\":\"Discussion Management\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Confidence\",\"weight\":10,\"value\":{\"text\":8}},{\"criterion\":\"Speech\",\"weight\":10,\"value\":{\"text\":7}},{\"criterion\":\"Visual Aid\",\"weight\":10,\"value\":{\"text\":7}}],\"created_at\":\"1528406552\",\"updated_at\":\"1528406552\",\"status\":\"1\"}]', 1528406670, 1528406670, 1);
 
 --
 -- Indexes for dumped tables
@@ -159,7 +164,7 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `projects`

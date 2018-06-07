@@ -112,11 +112,11 @@ export default {
       }
     },
     dialog(e) {
-      this.item.password = null
       if (!e) {
         this.$bus.$emit('refresh--btn')
         this.$emit('input', this.backup)
       }
+      this.item.password = null
     }
   },
 

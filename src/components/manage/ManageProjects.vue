@@ -68,6 +68,7 @@ export default {
     submitUrl: '/projects/save',
     projects: [],
     search: null,
+    loading: false,
     form: false
   }),
 

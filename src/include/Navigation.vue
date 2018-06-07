@@ -103,10 +103,10 @@ export default {
         ]
       },
       {
-        header: 'Report',
+        header: 'Results',
         auth: 1,
         items: [
-          { title: 'Votes', icon: 'star', tip: 'Votes', to: '/reports/votes' }
+          { title: 'All Votes', icon: 'star', tip: 'All Votes', to: '/votes' }
         ]
       },
       // logout

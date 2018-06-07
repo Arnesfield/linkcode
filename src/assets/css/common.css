@@ -42,3 +42,13 @@ p {
   width: 36px;
   min-width: 36px;
 }
+
+.tile-select .list__tile {
+  height: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.clickable {
+  cursor: pointer;
+}

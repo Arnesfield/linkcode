@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-title>
+    <v-card-title class="pb-2">
       <div>
         <div class="title mb-1">{{ item.name }}</div>
         <div class="caption grey--text text--darken-1">Category</div>
@@ -15,7 +15,7 @@
         />
         <v-list-tile :key="i">
           <v-list-tile-content>{{ e.criterion }}</v-list-tile-content>
-          <v-list-tile-action v-if="values[i]">
+          <v-list-tile-action v-if="values[i]" style="overflow: hidden">
             <v-select
               style="transform: translateY(-8px)"
               :items="values[i]"

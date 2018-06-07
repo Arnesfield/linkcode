@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<v-container grid-list-lg>
   <select-project
     v-model="project"
     :loading="loading"
@@ -34,7 +34,7 @@
           :disabled="!form"
         >
           <v-icon>send</v-icon>
-          Submit vote
+          <span>Submit vote</span>
         </v-btn>
       </v-layout>
 

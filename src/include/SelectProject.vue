@@ -283,7 +283,17 @@ export default {
 
     suggest() {
       this.dLoading = false
-
+      this.$http.post(this.url).then((res) => {
+        console.warn(res.data)
+        if (!res.data.success) {
+          throw new Error('Request failure.')
+        }
+        this.dLoading = false
+        this.projects = res.data.projects
+      }).catch(e => {
+        console.error(e)
+        this.dLoading = false
+      })
     },
   }
 }

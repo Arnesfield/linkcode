@@ -1,7 +1,9 @@
 import Vue from 'vue'
 
 import nav from './nav'
+import tabs from './tabs'
 import session from './session'
+import toolbar from './toolbar'
 import progress from './progress'
 
 import toNumberArray from '@/assets/js/toNumberArray'
@@ -9,7 +11,9 @@ import toNumberArray from '@/assets/js/toNumberArray'
 export default new Vue({
   data: () => ({
     nav: nav,
+    tabs: tabs,
     session: session,
+    toolbar: toolbar,
     progress: progress
   }),
 

@@ -27,3 +27,13 @@ p {
 .dim-2 {
   background-color: rgba(0, 0, 0, 0.36) !important;
 }
+
+.select-list-item {
+  display: block;
+  padding: 12px 0;
+}
+
+.thin-action {
+  width: 42px;
+  min-width: 42px;
+}

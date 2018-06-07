@@ -29,6 +29,7 @@ export default new Router({
       name: 'Dashboard',
       component: Dashboard,
       meta: {
+        icon: 'dashboard',
         title: 'Dashboard',
         auth: 3
       }
@@ -38,6 +39,7 @@ export default new Router({
       name: 'Vote',
       component: Vote,
       meta: {
+        icon: 'star',
         title: 'Vote',
         auth: 3
       }

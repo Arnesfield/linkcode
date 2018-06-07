@@ -2,6 +2,7 @@
   <v-app>
     <navigation v-if="authCheck"/>
     <v-content>
+      <toolbar-content v-if="authCheck"/>
       <router-view/>
     </v-content>
     <toolbar v-if="authCheck"/>
@@ -11,6 +12,7 @@
 
 <script>
 import Toolbar from '@/include/Toolbar'
+import ToolbarContent from '@/include/ToolbarContent'
 import Navigation from '@/include/Navigation'
 import Snackbar from '@/include/Snackbar'
 
@@ -18,6 +20,7 @@ export default {
   name: 'App',
   components: {
     Toolbar,
+    ToolbarContent,
     Navigation,
     Snackbar
   },

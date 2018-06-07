@@ -1,5 +1,5 @@
 <template>
-  <div class="bg" style="background-image: url('./static/images/bg-2.sm.jpg')">
+  <div class="bg" style="background-image: url('./static/images/ebulletin.sm.png')">
     <v-container fluid class="no-bg dim pa-3">
       <icon-img :item="$bus.session.user"/>
     </v-container>

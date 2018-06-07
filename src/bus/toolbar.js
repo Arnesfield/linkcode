@@ -1,3 +1,4 @@
 export default {
-  titleContent: null
+  titleContent: null,
+  title: null
 }

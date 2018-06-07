@@ -6,16 +6,39 @@ class Projects extends MY_Custom_Controller {
   public function __construct() {
     parent::__construct();
     $this->load->model('projects_model');
+    $this->load->model('votes_model');
   }
   
   public function index() {
+    $uid = $this->session->userdata('user')['id'];
     $search = $this->input->post('search')
       ? $this->_filter($this->input->post('search'))
       : '';
+    $id = $this->input->post('id') ? $this->input->post('id') : FALSE;
+    $userSpecific = $this->input->post('userSpecific') ? $this->input->post('userSpecific') : FALSE;
     
     $where = array();
+    $where_in = array();
 
-    $projects = $this->projects_model->getByQuery($search, $where);
+    if ($id) {
+      $where['id'] = $id;
+    }
+    if ($userSpecific) {
+      // check votes of user and only allow those projects
+      $votes = $this->votes_model->get(array(
+        'user_id' => $uid
+      ));
+      
+      if (!$votes) {
+        $this->_json(TRUE, 'projects', array());
+      }
+      
+      // using $votes, get only project ids
+      $where_in = $this->votes_model->_to_col($votes, 'project_id');
+      $search = FALSE;
+    }
+
+    $projects = $this->projects_model->getByQuery($search, $where, $where_in);
 
     $this->_json(TRUE, 'projects', $projects);
   }

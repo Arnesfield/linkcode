@@ -35,9 +35,10 @@ export default new Router({
       }
     },
     {
-      path: '/vote',
+      path: '/vote/:id?',
       name: 'Vote',
       component: Vote,
+      props: true,
       meta: {
         icon: 'star',
         title: 'Vote',

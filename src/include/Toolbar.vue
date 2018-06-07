@@ -15,7 +15,7 @@
         <v-avatar size="32px" class="mr-1">
           <img src="/static/images/logo.png"/>
         </v-avatar>
-        <span class="hidden-sm-and-down">LinkCode</span>
+        <span class="hidden-sm-and-down" v-text="title"></span>
       </v-toolbar-title>
     </v-flex>
 
@@ -36,6 +36,12 @@ export default {
   name: 'toolbar',
   components: {
     BtnRefresh
+  },
+  computed: {
+    title() {
+      return this.$bus.toolbar.title ||
+        'LinkCode'
+    }
   },
   methods: {
     checkRoute(...arr) {

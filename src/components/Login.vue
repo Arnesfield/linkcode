@@ -93,7 +93,7 @@ export default {
   },
   data: () => ({
     gradient: 'to right, #008349, #319e61',
-    height: 720,
+    height: 780,
     anim: {
       title: false
     }

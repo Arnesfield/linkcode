@@ -64,7 +64,14 @@ export default {
     CategoryView,
     ManageNoData
   },
+  props: {
+    id: {
+      type: String,
+      default: undefined
+    }
+  },
   data: () => ({
+    projectUrl: '/projects',
     categoryUrl: '/categories',
     voteUrl: '/vote',
     project: null,
@@ -79,7 +86,35 @@ export default {
     }
   },
 
+  created() {
+    if (typeof this.id !== 'undefined') {
+      // fetch project
+      this.fetchProject(this.id)
+    }
+  },
+  beforeDestroy() {
+    this.$bus.toolbar.title = null
+  },
+
   methods: {
+    fetchProject(i) {
+      this.loading = true
+      this.$http.post(this.projectUrl, qs.stringify({
+        id: i
+      })).then(res => {
+        console.warn(res.data)
+        if (!res.data.success) {
+          throw new Error('Request failure.')
+        }
+        this.loading = false
+        this.project = res.data.projects[0]
+      }).catch(e => {
+        console.error(e)
+        this.loading = false
+        this.fetchProject(i)
+      })
+    },
+
     fetchCategories() {
       this.loading = true
       this.categories = []
@@ -92,6 +127,7 @@ export default {
           throw new Error('Request failure.')
         }
         this.categories = res.data.categories
+        this.$bus.toolbar.title = this.project.name
         this.loading = false
       }).catch(e => {
         console.error(e)

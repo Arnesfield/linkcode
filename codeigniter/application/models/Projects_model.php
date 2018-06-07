@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Projects_model extends MY_Custom_Model {
 
-  public function getByQuery($search = FALSE, $where = FALSE) {
+  public function getByQuery($search = FALSE, $where = FALSE, $where_in = FALSE) {
     $this->db
       ->from('projects')
       ->where('status !=', -1);
@@ -23,6 +23,9 @@ class Projects_model extends MY_Custom_Model {
 
     if ($where) {
       $this->db->where($where);
+    }
+    if ($where_in) {
+      $this->db->where_in('id', $where_in);
     }
 
     $this->db

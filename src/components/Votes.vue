@@ -9,7 +9,7 @@
       <div
         v-if="userCount"
         class="grey--text text--darken-1"
-      >Total panels: <strong v-text="userCount"/></div>
+      >Total judges: <strong v-text="userCount"/></div>
       <v-list
         two-line
         class="elevation-1 my-3 pa-0"
@@ -82,6 +82,13 @@ export default {
 
   created() {
     this.fetch()
+    this.$bus.$on('refresh--btn', this.fetch)
+  },
+  beforeDestroy() {
+    this.$bus.tabs.Votes.tabs = null
+    this.$bus.tabs.Votes.tab = null
+    this.$bus.tabs.Votes.items = null
+    this.$bus.$off('refresh--btn', this.fetch)
   },
 
   methods: {

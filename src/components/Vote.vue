@@ -21,6 +21,7 @@
         >
           <category-view
             v-model="categories[i]"
+            style="height: 100%"
           />
         </v-flex>
       </v-layout>

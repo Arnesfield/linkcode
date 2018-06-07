@@ -18,7 +18,7 @@
     </v-toolbar-title>
 
     <template
-      v-if="checkRoute('ManageUsers')"
+      v-if="checkRoute('ManageUsers', 'Votes')"
     >
       <v-spacer/>
       <btn-refresh/>

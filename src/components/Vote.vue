@@ -29,7 +29,7 @@
         <v-spacer/>
         <v-btn
           large
-          color="primary"
+          color="primary lighten-1"
           @click="submit"
           :disabled="!form"
         >
@@ -119,13 +119,17 @@ export default {
       }).catch(e => {
         console.error(e)
         this.loading = false
-        this.fetchProject(i)
       })
     },
 
     fetchCategories() {
       this.loading = true
       this.categories = []
+
+      if (!this.project) {
+        return
+      }
+
       this.$http.post(this.categoryUrl, qs.stringify({
         voted: true,
         project_id: this.project.id
@@ -147,7 +151,7 @@ export default {
     submit() {
       this.loading = true
 
-      if (!this.form) {
+      if (!(this.form || (this.project && this.categories))) {
         return
       }
 

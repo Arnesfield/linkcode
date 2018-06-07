@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 10:47 AM
+-- Generation Time: Jun 07, 2018 at 11:47 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -42,9 +42,20 @@ CREATE TABLE `categories` (
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  `content` text NOT NULL,
+  `group_name` varchar(64) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `name`, `group_name`, `description`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'FORGE: Online Syllabus Generator', '</code>', 'Something', 0, 0, 1),
+(2, 'PetEx', 'JC and da boyz', 'Some desc', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -100,6 +111,7 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
+ALTER TABLE `projects` ADD FULLTEXT KEY `FULLTEXT_INDEX` (`name`,`group_name`,`description`);
 
 --
 -- Indexes for table `users`
@@ -126,7 +138,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --

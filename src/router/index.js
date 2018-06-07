@@ -6,6 +6,7 @@ import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
 import Vote from '@/components/Vote'
 
+import ManageUsers from '@/components/manage/ManageUsers'
 import ManageProjects from '@/components/manage/ManageProjects'
 import ManageCategories from '@/components/manage/ManageCategories'
 
@@ -27,6 +28,16 @@ export default new Router({
     },
 
     // admin
+    {
+      path: '/manage/users',
+      name: 'ManageUsers',
+      component: ManageUsers,
+      meta: {
+        icon: 'account_circle',
+        title: 'Manage Users',
+        auth: 1
+      }
+    },
     {
       path: '/manage/projects',
       name: 'ManageProjects',

@@ -28,7 +28,7 @@ export default function(router, http, bus) {
       next(false)
       if (SESS_EXISTS) {
         if (IS_ADMIN) {
-          router.push('/manage/categories')
+          router.push('/manage/users')
         } else if (IS_PANEL) {
           router.push('/dashboard')
         }

@@ -11,8 +11,8 @@ class Categories extends MY_Custom_Controller {
   
   public function index() {
     $search = $this->input->post('search')
-    ? $this->_filter($this->input->post('search'))
-    : '';
+      ? $this->_filter($this->input->post('search'))
+      : '';
     
     $voted = $this->input->post('voted') ? $this->input->post('voted') : FALSE;
     $project_id = $this->input->post('project_id') ? $this->input->post('project_id') : 0;

@@ -53,6 +53,7 @@
 
 <script>
 import qs from 'qs'
+import debounce from 'lodash/debounce'
 import ManageProjectView from '@/include/ManageProjectView'
 import ManageNoData from '@/include/ManageNoData'
 
@@ -130,7 +131,7 @@ export default {
       })
     },
 
-    fetch() {
+    fetch: debounce(function(e) {
       this.loading = true
       this.$http.post(this.url, qs.stringify({
         search: this.search
@@ -145,7 +146,7 @@ export default {
         console.error(e)
         this.loading = false
       })
-    }
+    }, 300)
   }
 }
 </script>

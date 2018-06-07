@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 09:10 PM
+-- Generation Time: Jun 07, 2018 at 10:56 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -81,6 +81,8 @@ CREATE TABLE `users` (
   `username` varchar(32) NOT NULL,
   `password` varchar(255) NOT NULL,
   `auth` text NOT NULL,
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -88,9 +90,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `auth`, `status`) VALUES
-(1, 'John Doe', 'user1', '$2y$10$bkpoxPsGV9rI/jqY68v2muyEb42Zow9Lfn1/cGNVZQadDx/BoxCW2', '[3]', 1),
-(2, 'Admin', 'admin', '$2y$10$bkpoxPsGV9rI/jqY68v2muyEb42Zow9Lfn1/cGNVZQadDx/BoxCW2', '[1]', 1);
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `auth`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'John Doeest', 'user1', '$2y$10$gCUowmgbNc/p0JaZON2QZ.7cKXVxn17XH52EaYdAFF.bnU8iqR2PS', '[3]', 0, 1528404370, 1),
+(2, 'Admin', 'admin', '$2y$10$bkpoxPsGV9rI/jqY68v2muyEb42Zow9Lfn1/cGNVZQadDx/BoxCW2', '[1]', 0, 0, 1),
+(3, 'John Doe', 'user2', '$2y$10$bkpoxPsGV9rI/jqY68v2muyEb42Zow9Lfn1/cGNVZQadDx/BoxCW2', '[3]', 1528403890, 1528403890, 1),
+(5, 'Jane Doexx', 'user3', '$2y$10$5VqjCIo2aRRyGB9qPXltpOhL9uBthxYsic3M308diTUJSy20WR6D2', '[3]', 1528404529, 1528404932, 1);
 
 -- --------------------------------------------------------
 
@@ -137,7 +141,9 @@ ALTER TABLE `projects` ADD FULLTEXT KEY `FULLTEXT_INDEX` (`name`,`group_name`,`d
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+ALTER TABLE `users` ADD FULLTEXT KEY `FULLTEXT_INDEX` (`name`,`username`);
 
 --
 -- Indexes for table `votes`
@@ -165,7 +171,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `votes`

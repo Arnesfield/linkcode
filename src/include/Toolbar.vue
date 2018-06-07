@@ -18,6 +18,13 @@
     </v-toolbar-title>
 
     <template
+      v-if="checkRoute('ManageUsers')"
+    >
+      <v-spacer/>
+      <btn-refresh/>
+    </template>
+
+    <template
       v-if="checkRoute('ManageProjects', 'ManageCategories')"
     >
       <v-spacer/>

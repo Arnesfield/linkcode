@@ -77,4 +77,80 @@ class MY_View_Controller extends MY_Controller {
   }
 }
 
+/**
+ * My custom controller
+ * 
+ * Extends MY_View_Controller
+ */
+class MY_Custom_Controller extends MY_View_Controller {
+  public function __construct() {
+    parent::__construct();
+    // prevent access if not post request
+    if ($this->input->method(TRUE) !== 'POST') {
+      $this->_redirect();
+    }
+    // load lib
+    $this->load->library('session');
+  }
+
+  public function _filter($str) {
+    return strip_tags(trim(addslashes($str)));
+  }
+
+  public function _redirect($to = '../#/error') {
+    redirect(base_url($to));
+  }
+
+  public function _json($success, $arr = array(), $val = NULL) {
+    // if $arr is string, make it an array with $val
+    if (is_string($arr)) {
+      $arr = array($arr => $val);
+    }
+
+    $master = array_merge($arr, array('success' => $success));
+
+    echo json_encode($master);
+    exit;
+  }
+
+  public function _uploadFile($file_name = 'file', $allowed_types = FALSE, $path = 'uploads/images/') {
+    if (!$allowed_types) {
+      $allowed_types = 'jpg|png|jpeg';
+    }
+
+    $config = array(
+      'upload_path' => './../'.$path,
+      'allowed_types' => $allowed_types,
+      'max_size' => 5*1000*1024,
+      'file_name' => 'F_' . time()
+    );
+
+    $this->load->library('upload', $config);
+
+    if (!$this->upload->do_upload($file_name)) {
+      $error = $this->upload->display_errors();
+      return array(
+        'success' => FALSE,
+        'error' => $error
+      );
+    }
+
+    return array(
+      'success' => TRUE,
+      'data' => $this->upload->data()
+    );
+  }
+
+  public function _updateSess() {
+    $this->load->model('users_model');
+    $uid = $this->session->userdata('user')['id'];
+    $users = $this->users_model->get(array('id' => $uid));
+    $user = $this->_formatUsers($users)[0];
+    $this->session->set_userdata(array(
+      'user' => $user,
+      'auth' => $user['auth']
+    ));
+  }
+}
+
 ?>

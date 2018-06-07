@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 09:00 AM
+-- Generation Time: Jun 07, 2018 at 09:35 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -55,6 +55,9 @@ CREATE TABLE `projects` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `auth` text NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

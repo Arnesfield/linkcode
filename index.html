@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>xlinkcode</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="./static/css/static.css">
+
+<link rel="shortcut icon" href="./static/images/logo.png" type="image/x-icon">
+
+<title>Link Code</title>
+
+</head>
+<body>
+
+<noscript>
+  <div class="noscript-container pa-3">
+    <div>
+      <i class="display-2 material-icons">error_outline</i>
+      <h1 class="display-1 my-4">This application requires <span class="mono">JavaScript</span>.</h1>
+      <div class="subheading">Your browser does <strong>not</strong> enable or support <span class="mono">JavaScript</span>!</div>
+    </div>
+  </div>
+</noscript>
+
+<div id="loading" style="height: 100%; display: none; justify-content: center; align-items: center; background-color: #fafafa">
+  <div class="progress-circular progress-circular--indeterminate primary--text" style="height: 108px; width: 108px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="25 25 50 50" style="transform: rotate(0deg);">
+      <circle fill="transparent" cx="50" cy="50" r="20" stroke-width="4" stroke-dasharray="125.664" stroke-dashoffset="125.66370614359172px"
+        style="color: #008349 !important"
+        class="progress-circular__overlay"></circle>
+    </svg>
+    <div class="progress-circular__info"></div>
+  </div>
+</div>
+
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>

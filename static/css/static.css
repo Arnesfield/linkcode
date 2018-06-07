@@ -1,0 +1,20 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.noscript-container {
+  font-family: "Roboto";
+  height: 100%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mono {
+  font-family: monospace, monospace;
+}

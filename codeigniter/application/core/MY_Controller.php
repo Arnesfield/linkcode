@@ -129,6 +129,24 @@ class MY_Custom_Controller extends MY_View_Controller {
     return $users;
   }
 
+  public function _formatCategories($arr) {
+    if ($arr) {
+      foreach ($arr as $key => $value) {
+        $arr[$key]['content'] = json_decode($value['content'], TRUE);
+      }
+    }
+    return $arr;
+  }
+
+  public function _formatVotes($arr) {
+    if ($arr) {
+      foreach ($arr as $key => $value) {
+        $arr[$key]['content'] = json_decode($value['content'], TRUE);
+      }
+    }
+    return $arr;
+  }
+
   public function _uploadFile($file_name = 'file', $allowed_types = FALSE, $path = 'uploads/images/') {
     if (!$allowed_types) {
       $allowed_types = 'jpg|png|jpeg';

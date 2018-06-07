@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 11:47 AM
+-- Generation Time: Jun 07, 2018 at 01:56 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -30,8 +30,17 @@ CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `content` text NOT NULL,
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `content`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'Best Thesis', '[{"criterion":"Introduction","weight":10},{"criterion":"Objectives/Criteria","weight":10},{"criterion":"Methodology","weight":10},{"criterion":"Presentation","weight":10},{"criterion":"Results/Findings","weight":10},{"criterion":"Flow/Balance","weight":10},{"criterion":"Impact Factor","weight":10},{"criterion":"Conclusion","weight":10},{"criterion":"Quest/Answer Session","weight":10}]', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -89,12 +98,18 @@ CREATE TABLE `votes` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `votes`
+--
+
+INSERT INTO `votes` (`id`, `user_id`, `project_id`, `content`, `created_at`, `updated_at`, `status`) VALUES
+(1, 1, 1, '[{"id":"1","name":"Best Thesis","content":[{"criterion":"Introduction","weight":10,"value":{"text":9}},{"criterion":"Objectives/Criteria","weight":10,"value":{"text":10}},{"criterion":"Methodology","weight":10,"value":{"text":9}},{"criterion":"Presentation","weight":10,"value":{"text":9}},{"criterion":"Results/Findings","weight":10,"value":{"text":10}},{"criterion":"Flow/Balance","weight":10,"value":{"text":8}},{"criterion":"Impact Factor","weight":10,"value":{"text":8}},{"criterion":"Conclusion","weight":10,"value":{"text":6}},{"criterion":"Quest/Answer Session","weight":10,"value":{"text":6}}],"created_at":"0","updated_at":"0","status":"1"}]', 1528372178, 1528372522, 1);
 
 --
 -- Indexes for dumped tables
@@ -104,7 +119,8 @@ CREATE TABLE `votes` (
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `FULLTEXT_INDEX` (`name`);
 
 --
 -- Indexes for table `projects`
@@ -133,7 +149,7 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `projects`
 --
@@ -148,7 +164,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

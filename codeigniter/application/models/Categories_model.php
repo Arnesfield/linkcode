@@ -41,6 +41,16 @@ class Categories_model extends MY_Custom_Model {
       ->where($where)
       ->update('categories');
   }
+
+  public function reupdate($data) {
+    $res = $this->db->truncate('categories');
+
+    if (!$res) {
+      return FALSE;
+    }
+
+    return $this->db->insert_batch('categories', $data);
+  }
 }
 
 ?>

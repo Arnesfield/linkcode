@@ -1,4 +1,5 @@
 export default {
   active: false,
-  refresh: false
+  refresh: false,
+  save: false
 }

@@ -42,6 +42,26 @@ class Categories extends MY_Custom_Controller {
     $this->_json(TRUE, 'categories', $categories);
   }
 
+  public function save() {
+    // delete all categories, then insert all
+    $categories = $this->input->post('categories');
+    $categories = json_decode($categories, TRUE);
+
+    // loop through categories
+    $newCateg = array();
+    foreach ($categories as $key => $value) {
+      $newCateg[$key] = array();
+      $newCateg[$key]['name'] = $value['name'];
+      $newCateg[$key]['content'] = json_encode($value['content']);
+      $newCateg[$key]['created_at'] = time();
+      $newCateg[$key]['updated_at'] = time();
+      $newCateg[$key]['status'] = 1;
+    }
+
+    $res = $this->categories_model->reupdate($newCateg);
+    $this->_json($res);
+  }
+
   public function delete() {
     $id = $this->input->post('id');
     $data = array(

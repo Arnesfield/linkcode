@@ -32,6 +32,12 @@ export default {
     loading: false
   }),
 
+  watch: {
+    loading(e) {
+      this.$bus.refresh(e)
+    }
+  },
+
   created() {
     this.fetch()
   },

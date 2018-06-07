@@ -17,6 +17,7 @@
           <v-list-tile-content>{{ e.criterion }}</v-list-tile-content>
           <v-list-tile-action v-if="values[i]">
             <v-select
+              style="transform: translateY(-8px)"
               :items="values[i]"
               v-model="item.content[i].value"
               single-line

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 
 import nav from './nav'
+import fab from './fab'
+import dialog from './dialog'
 import tabs from './tabs'
 import session from './session'
 import toolbar from './toolbar'
@@ -12,6 +14,8 @@ export default new Vue({
   data: () => ({
     nav: nav,
     tabs: tabs,
+    fab: fab,
+    dialog: dialog,
     session: session,
     toolbar: toolbar,
     progress: progress
@@ -27,6 +31,11 @@ export default new Vue({
     refresh(e) {
       this.progress.active = e
       this.progress.refresh = e
+    },
+    save(e) {
+      this.progress.active = e
+      this.progress.refresh = e
+      this.progress.save = e
     },
 
     navToggle() {

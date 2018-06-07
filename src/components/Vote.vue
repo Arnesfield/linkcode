@@ -83,6 +83,14 @@ export default {
   watch: {
     project(e) {
       this.fetchCategories()
+    },
+    id(e) {
+      if (typeof e !== 'undefined') {
+        this.fetchProject(e)
+      }
+    },
+    loading(e) {
+      this.$bus.refresh(e)
     }
   },
 

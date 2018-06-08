@@ -14,30 +14,30 @@
         two-line
         class="elevation-1 my-3 pa-0"
       >
-        <template v-for="(projectId, j) in keyed = keysify(result[category.id])">
+        <template v-for="(obj, j) in list = getInOrder(category)">
           <v-layout
             :key="i + '-' + j"
             class="pa-3"
           >
             <div class="mr-3">{{ j+1 }}</div>
             <div>
-              <div>{{ getProject(projectId).name }}</div>
-              <div class="grey--text">{{ getProject(projectId).group_name }}</div>
+              <div>{{ obj.project.name }}</div>
+              <div class="grey--text">{{ obj.project.group_name }}</div>
             </div>
             <v-spacer/>
             <div>
               <div class="text-xs-right">
-                <div>{{ totalPoints(result[category.id], projectId) }}</div>
+                <div>{{ obj.totalPoints }}</div>
                 <div
                   class="grey--text"
-                >Total Votes: <strong v-text="totalVotes(result[category.id], projectId)"/>
+                >Total Votes: <strong v-text="obj.totalVotes"/>
                 </div>
               </div>
             </div>
           </v-layout>
           <v-divider
             :key="'divider-' + i + '-' + j"
-            v-if="keyed.length-1 != j"
+            v-if="list.length-1 != j"
           />
         </template>
       </v-list>
@@ -49,6 +49,7 @@
 <script>
 import find from 'lodash/find'
 import filter from 'lodash/filter'
+import orderBy from 'lodash/orderBy'
 
 export default {
   name: 'votes',
@@ -94,6 +95,27 @@ export default {
   methods: {
     keysify(e) {
       return Object.keys(e)
+    },
+
+    pad(num, size) {
+      return ('0' + num).substr(-size)
+    },
+
+    getInOrder(category) {
+      let projects = Object.keys(this.result[category.id]).reduce((filtered, projectId) => {
+        let project = this.getProject(projectId)
+        let totalPoints = this.totalPoints(this.result[category.id], projectId)
+        let totalVotes = this.totalVotes(this.result[category.id], projectId)
+        let obj = {
+          project: project,
+          totalPoints: this.pad(totalPoints, 5),
+          totalVotes: totalVotes
+        }
+        filtered.push(obj)
+        return filtered
+      }, [])
+      
+      return orderBy(projects, ['totalPoints'], ['desc'])
     },
 
     totalPoints(projectKeyValue, id) {

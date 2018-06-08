@@ -23,6 +23,7 @@
             v-model="categories[i]"
             :index="i"
             @delete="deleteItem"
+            style="height: 100%"
           />
         </v-flex>
       </template>

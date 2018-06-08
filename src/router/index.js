@@ -92,7 +92,7 @@ export default new Router({
       meta: {
         icon: 'star',
         title: 'All Votes',
-        auth: [1, 3]
+        auth: 1
       }
     },
 

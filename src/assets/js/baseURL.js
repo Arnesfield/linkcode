@@ -3,4 +3,4 @@ const forceDev = true
 
 export default forceDev || !production ?
   'http://localhost/xlinkcode/public/' :
-  'to be set'
+  'http://linkcode.x10.mx/'
